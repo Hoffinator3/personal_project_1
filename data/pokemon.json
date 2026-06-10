@@ -1,0 +1,74 @@
+{
+    "bulbasour": {
+        "hp": 45,
+        "attack": 49,
+        "defense": 49,
+        "sp_attack": 65,
+        "sp_defense": 65,
+        "speed": 45
+    },
+    "ivysaur": {
+        "hp": 60,
+        "attack": 62,
+        "defense": 63,
+        "sp_attack": 80,
+        "sp_defense": 80,
+        "speed": 60
+    },
+    "venusaur": {
+        "hp": 80,
+        "attack": 82,
+        "defense": 83,
+        "sp_attack": 100,
+        "sp_defense": 100,
+        "speed": 80
+    },
+        "charmander": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "sp_attack": 60,
+        "sp_defense": 50,
+        "speed": 65
+    },
+        "charmeleon": {
+        "hp": 58,
+        "attack": 64,
+        "defense": 58,
+        "sp_attack": 80,
+        "sp_defense": 65,
+        "speed": 80
+    },
+        "charizard": {
+        "hp": 78,
+        "attack": 84,
+        "defense": 78,
+        "sp_attack": 109,
+        "sp_defense": 85,
+        "speed": 100
+    },
+        "squirtle": {
+        "hp": 44,
+        "attack": 48,
+        "defense": 65,
+        "sp_attack": 50,
+        "sp_defense": 64,
+        "speed": 43
+    },
+        "wartortle": {
+        "hp": 59,
+        "attack": 63,
+        "defense": 80,
+        "sp_attack": 65,
+        "sp_defense": 80,
+        "speed": 58
+    },
+        "blastoise": {
+        "hp": 79,
+        "attack": 83,
+        "defense": 100,
+        "sp_attack": 85,
+        "sp_defense": 105,
+        "speed": 78
+    }
+}
