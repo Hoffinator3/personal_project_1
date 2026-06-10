@@ -1,0 +1,22 @@
+
+class Pokemon:
+    def __init__(self, name: str, level: int, hp: int, stats: dict, types, moves: list, status_effects):
+        self.name = name
+        self.level = level
+        self.hp = hp
+        self.stats = stats
+        self.types = types
+        self.moves = moves
+        self.status_effects = status_effects
+
+    def take_damage(self):
+        pass
+
+    def heal(self):
+        pass
+
+    def level_up(self):
+        pass
+
+    def use_move(self):
+        pass
