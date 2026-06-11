@@ -1,6 +1,7 @@
+from moves import Moves
 
 class Pokemon:
-    def __init__(self, name: str, level: int, stats: dict, types, moves: list, status_effects):
+    def __init__(self, name: str, level: int, stats: dict, types, moves: list[Moves], status_effects):
         self.name = name
         self.level = level
         self.stats = stats
