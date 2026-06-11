@@ -13,14 +13,14 @@ def create_starter(starter: str) -> list[Pokemon]:
     with open(os.path.abspath(path_pokemon_data), mode='r') as d:
         pokemon = json.load(d)
         match starter.lower().strip():
-            case "bulbasaur":
-                team.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["hp"], pokemon["bulbasaur"], pokemon["bulbasaur"]["type"], ["tackle"], None))
+            case "bulbasaur" | "1":
+                team.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], ["tackle"], None))
                 return team
-            case "charmander":
-                team.append(Pokemon("Charmander", 5, pokemon["charmander"]["hp"], pokemon["charmander"], pokemon["charmander"]["type"], ["scratch"], None))
+            case "charmander" | "2":
+                team.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], ["scratch"], None))
                 return team
-            case "squirtle":
-                team.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["hp"], pokemon["squirtle"], pokemon["squirtle"]["type"], ["tackle"], None))
+            case "squirtle" | "3":
+                team.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], ["tackle"], None))
                 return team
             case _:
                 return list("Error Creating Starter")
@@ -47,18 +47,15 @@ def main():
     else:
        team = create_starter(starter) 
 
-    print(f"team = {team}")
-
     player = Player(player_name, team)
     pokemon = team[0]
     
 
     print(f""" 
         Player Name: {player.name}\n
-        Player Team: {player.team}\n
         Pokemon Picked: {pokemon.name}\n
         Level: {pokemon.level}\n
-        HP: {pokemon.hp}\n
+        HP: {pokemon.stats["hp"]}\n
         Stats: {pokemon.stats}\n
         Types: {pokemon.types}\n
         Moves: {pokemon.moves}

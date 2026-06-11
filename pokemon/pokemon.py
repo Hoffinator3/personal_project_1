@@ -1,9 +1,8 @@
 
 class Pokemon:
-    def __init__(self, name: str, level: int, hp: int, stats: dict, types, moves: list, status_effects):
+    def __init__(self, name: str, level: int, stats: dict, types, moves: list, status_effects):
         self.name = name
         self.level = level
-        self.hp = hp
         self.stats = stats
         self.types = types
         self.moves = moves

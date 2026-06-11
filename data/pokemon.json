@@ -1,107 +1,125 @@
 {
     "bulbasaur": {
-        "hp": 45,
-        "attack": 49,
-        "defense": 49,
-        "sp_attack": 65,
-        "sp_defense": 65,
-        "speed": 45,
+        "stats": {
+            "hp": 45,
+            "attack": 49,
+            "defense": 49,
+            "sp_attack": 65,
+            "sp_defense": 65,
+            "speed": 45
+        },
         "type": {
             "type1": "grass",
             "type2": "poison"
         }
     },
     "ivysaur": {
-        "hp": 60,
-        "attack": 62,
-        "defense": 63,
-        "sp_attack": 80,
-        "sp_defense": 80,
-        "speed": 60,
+        "stats": {
+            "hp": 60,
+            "attack": 62,
+            "defense": 63,
+            "sp_attack": 80,
+            "sp_defense": 80,
+            "speed": 60
+        },
         "type": {
             "type1": "grass",
             "type2": "poison"
         }
     },
     "venusaur": {
-        "hp": 80,
-        "attack": 82,
-        "defense": 83,
-        "sp_attack": 100,
-        "sp_defense": 100,
-        "speed": 80,
+        "stats": {
+            "hp": 80,
+            "attack": 82,
+            "defense": 83,
+            "sp_attack": 100,
+            "sp_defense": 100,
+            "speed": 80
+        },
         "type": {
             "type1": "grass",
             "type2": "poison"
         }
     },
-        "charmander": {
-        "hp": 39,
-        "attack": 52,
-        "defense": 43,
-        "sp_attack": 60,
-        "sp_defense": 50,
-        "speed": 65,
+    "charmander": {
+        "stats": {
+            "hp": 39,
+            "attack": 52,
+            "defense": 43,
+            "sp_attack": 60,
+            "sp_defense": 50,
+            "speed": 65
+        },
         "type": {
             "type1": "fire",
             "type2": null
         }
     },
-        "charmeleon": {
-        "hp": 58,
-        "attack": 64,
-        "defense": 58,
-        "sp_attack": 80,
-        "sp_defense": 65,
-        "speed": 80,
+    "charmeleon": {
+        "stats": {
+            "hp": 58,
+            "attack": 64,
+            "defense": 58,
+            "sp_attack": 80,
+            "sp_defense": 65,
+            "speed": 80
+        },
         "type": {
             "type1": "fire",
             "type2": null
         }
     },
-        "charizard": {
-        "hp": 78,
-        "attack": 84,
-        "defense": 78,
-        "sp_attack": 109,
-        "sp_defense": 85,
-        "speed": 100,
+    "charizard": {
+        "stats": {
+            "hp": 78,
+            "attack": 84,
+            "defense": 78,
+            "sp_attack": 109,
+            "sp_defense": 85,
+            "speed": 100
+        },
         "type": {
             "type1": "fire",
             "type2": "flying"
         }
     },
-        "squirtle": {
-        "hp": 44,
-        "attack": 48,
-        "defense": 65,
-        "sp_attack": 50,
-        "sp_defense": 64,
-        "speed": 43,
+    "squirtle": {
+        "stats": {
+            "hp": 44,
+            "attack": 48,
+            "defense": 65,
+            "sp_attack": 50,
+            "sp_defense": 64,
+            "speed": 43
+        },
         "type": {
             "type1": "water",
             "type2": null
         }
     },
-        "wartortle": {
-        "hp": 59,
-        "attack": 63,
-        "defense": 80,
-        "sp_attack": 65,
-        "sp_defense": 80,
-        "speed": 58,
+    "wartortle": {
+        "stats": {
+            "hp": 59,
+            "attack": 63,
+            "defense": 80,
+            "sp_attack": 65,
+            "sp_defense": 80,
+            "speed": 58
+        },
         "type": {
             "type1": "water",
             "type2": null
         }
     },
-        "blastoise": {
-        "hp": 79,
-        "attack": 83,
-        "defense": 100,
-        "sp_attack": 85,
-        "sp_defense": 105,
-        "speed": 78,
+    "blastoise": {
+        "stats": {
+            "hp": 79,
+            "attack": 83,
+            "defense": 100,
+            "sp_attack": 85,
+            "sp_defense": 105,
+            "speed": 78
+        },
         "type": {
             "type1": "water",
             "type2": null
