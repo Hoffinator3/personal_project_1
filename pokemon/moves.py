@@ -1,3 +1,7 @@
+# moves.json categories
+# 0 = status
+# 1 = physical
+# 2 = special
 
 class Move:
     def __init__(self, name: str, power: int, type, pp: int):

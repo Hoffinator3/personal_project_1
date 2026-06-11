@@ -1,0 +1,30 @@
+{
+    "growl": {
+        "power": null,
+        "accuracy": 100,
+        "category": 0,
+        "type": "normal",
+        "pp": 40
+    },
+    "tackle": {
+        "power": 40,
+        "accuracy": 100,
+        "category": 1,
+        "type": "normal",
+        "pp": 40
+    },
+    "scratch": {
+        "power": 40,
+        "accuracy": 100,
+        "category": 1,
+        "type": "normal",
+        "pp": 35
+    },
+    "tail whip": {
+        "power": null,
+        "accuracy": 100,
+        "category": 0,
+        "type": "normal",
+        "pp": 30
+    }
+}

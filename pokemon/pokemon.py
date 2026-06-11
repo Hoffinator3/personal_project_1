@@ -20,3 +20,6 @@ class Pokemon:
 
     def use_move(self):
         pass
+
+    def is_stab(self):
+        pass
