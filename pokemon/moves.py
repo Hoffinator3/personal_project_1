@@ -3,7 +3,7 @@
 # 1 = physical
 # 2 = special
 
-class Move:
+class Moves:
     def __init__(self, name: str, power: int, type, pp: int):
         self.name = name
         self.power = power
