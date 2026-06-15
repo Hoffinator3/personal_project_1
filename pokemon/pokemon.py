@@ -9,8 +9,9 @@ class Pokemon:
         self.moves = moves
         self.status_effects = status_effects
 
-    def take_damage(self):
-        pass
+    def take_damage(self, damage):
+        self.stats["hp"] -= damage
+        return self.stats["hp"]
 
     def heal(self):
         pass

@@ -1,5 +1,6 @@
 from pokemon.pokemon import Pokemon
-
+import os
+import json
 
 # moves.json categories
 # 0 = status
@@ -7,27 +8,31 @@ from pokemon.pokemon import Pokemon
 # 2 = special
 
 class Moves:
-    def __init__(self, name: str, power: int, type, pp: int, category: int, offense: Pokemon, defense: Pokemon):
+    def __init__(self, name: str):
         self.name = name
-        self.power = power
-        self.type = type
-        self.pp = pp
-        self.category = category
-        self.a = offense
-        self.d = defense
+        with open(os.path.abspath("./data/moves.json"), mode='r') as d:
+            move = json.load(d)
+            self.power = move[name]["power"]
+            self.type = move[name]["type"]
+            self.pp = move[name]["pp"]
+            self.category = move[name]["category"]
 
-    def calculate_damage(self):
-        base = ((self.pokemon.level * 2) / 5 + 2)
+    def calculate_damage(self, attacker, defender):
+        if attacker == None or attacker == "":
+            attacker = 1
+        if defender == None or defender == "":
+            defender = 1
+        base = ((attacker.level * 2) / 5 + 2)
         if self.category == 0:
             pass
         if self.category == 1:
-            base_stats = base * self.power * (self.a.stats["attack"] / self.d.stats["defense"])
+            base_stats = base * self.power * (attacker.stats["attack"] / defender.stats["defense"])
         if self.category == 2:
-            base_stats = base * self.power * (self.a.stats["sp_attack"] / self.d.stats["sp_defense"])
+            base_stats = base * self.power * (attacker.stats["sp_attack"] / defender.stats["sp_defense"])
 
         #Missing calculations for random, stab,  type,  burn
         base_damage = (base_stats / 50) + 2
-        return base_damage
+        return int(base_damage)
 
 
     def can_use(self):
