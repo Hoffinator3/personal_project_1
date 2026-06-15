@@ -25,7 +25,10 @@ class Moves:
         if self.category == 2:
             base_stats = base * self.power * (self.a.stats["sp_attack"] / self.d.stats["sp_defense"])
 
+        #Missing calculations for random, stab,  type,  burn
         base_damage = (base_stats / 50) + 2
+        return base_damage
+
 
     def can_use(self):
         pass
