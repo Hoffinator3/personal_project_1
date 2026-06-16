@@ -1,4 +1,4 @@
-#from pokemon.moves import Moves
+from pokemon.moves import Moves
 
 class Pokemon:
     def __init__(self, name: str, level: int, stats: dict, types, moves: list, status_effects, fainted=False):
@@ -20,11 +20,16 @@ class Pokemon:
     def level_up(self):
         pass
 
-    def use_move(self, name):
-        for i in range(len(self.moves)-1):
-            if self.moves[i].name == name:
-                return self.moves[i].name
-        raise Exception(f"Pokemon does not know move {name}")
+    def use_move(self, move, attacker, defender):
+        return self.moves[move].calculate_damage(attacker, defender)
 
     def is_stab(self):
         pass
+
+    def list_moves(self):
+        result = []
+        for move in self.moves:
+            i = 1
+            result.append(f"{i}. {move.get_name()}")
+            i += 1
+        return result

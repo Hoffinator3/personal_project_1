@@ -3,10 +3,10 @@ import json
 import os
 from pokemon.pokemon import Pokemon
 from pokemon.moves import Moves
-#from pokemon.moves import Moves
 from pokemon.battle import Battle
 from trainers.player import Player
 from trainers.trainer import Trainer
+from battle.battle_loop import battle_loop
 
 
 def test_battle():
@@ -35,11 +35,21 @@ def test_move():
         b = Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None)
         s = Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None) 
 
-    player = Player("zach", b)
-    rival = Trainer("Red", s)
+    player = Player("zach", [b])
+    rival = Trainer("Red", [s])
     fight = Battle(player, rival)
-    
+    action = fight.player_action(rival)
+    print(f"action = {action}")
+    #player_attack = action - 1
+    fight.trainer_two.team[0].take_damage(action)
+    print(f"rival pokemon took {action} damage")
+    print(f"{fight.trainer_two.team[0].name} new hp: {fight.trainer_two.team[0].stats["hp"]}")
+
+
+    trainer_action = fight.tainer_action()
+    print(f"trainer uses {trainer_action}")
+
 
 if __name__ == "__main__":
-    test_battle()
+    #test_battle()
     test_move()

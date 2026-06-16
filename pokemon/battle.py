@@ -35,3 +35,16 @@ class Battle:
     def trainer_pokemon_fainted(self):
         if self.trainer_one.team[0].stats["hp"] <= 0:
             self.trainer_one.team[0].fainted = True
+
+    def player_action(self, trainer):
+        print(f"Please select a move:")
+        print(f"{" ".join(self.trainer_one.team[0].list_moves())}")
+        action = input()
+        if action == None or action == "":
+            raise Exception(f"invalid action")
+        player_attack = self.trainer_one.team[0].use_move(int(action) - 1, self.trainer_one.team[0], trainer.team[0])
+        #trainer.team[0].take_damage(player_attack)
+        return player_attack
+
+    def tainer_action(self):
+        return self.trainer_two.team[0].moves[0].get_name()

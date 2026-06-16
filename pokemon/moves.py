@@ -1,4 +1,4 @@
-from pokemon.pokemon import Pokemon
+#from pokemon.pokemon import Pokemon
 import os
 import json
 
@@ -17,7 +17,7 @@ class Moves:
             self.pp = move[name]["pp"]
             self.category = move[name]["category"]
 
-    def calculate_damage(self, attacker, defender):
+    def calculate_damage(self, attacker, defender) -> int:
         if attacker == None or attacker == "":
             attacker = 1
         if defender == None or defender == "":
@@ -37,3 +37,6 @@ class Moves:
 
     def can_use(self):
         pass
+
+    def get_name(self):
+        return self.name
