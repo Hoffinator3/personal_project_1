@@ -6,6 +6,7 @@ from pokemon.moves import Moves
 from pokemon.battle import Battle
 from trainers.player import Player
 from trainers.trainer import Trainer
+from battle.battle_loop import battle_loop
 
 path_pokemon_data = "./data/pokemon.json"
 
@@ -15,13 +16,13 @@ def create_starter(starter: str) -> list[Pokemon]:
         pokemon = json.load(d)
         match starter.lower().strip():
             case "bulbasaur" | "1":
-                team.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], ["tackle"], None))
+                team.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None))
                 return team
             case "charmander" | "2":
-                team.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], ["scratch"], None))
+                team.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None))
                 return team
             case "squirtle" | "3":
-                team.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], ["tackle"], None))
+                team.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None))
                 return team
             case _:
                 return list("Error Creating Starter")
@@ -32,13 +33,13 @@ def create_rival(starter: str) -> list[Pokemon]:
         pokemon = json.load(d)
         match starter.lower().strip():
             case "squirtle" | "3":
-                rival.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], ["tackle"], None))
+                rival.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None))
                 return rival
             case "bulbasaur" | "1":
-                rival.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], ["scratch"], None))
+                rival.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None))
                 return rival
             case "charmander" | "2":
-                rival.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], ["tackle"], None))
+                rival.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None))
                 return rival
             case _:
                 return list("Error Creating Starter")
@@ -57,7 +58,7 @@ def main():
     """)
 
     starter = input()
-    print(f"starter input = {starter}")
+    #print(f"starter input = {starter}")
 
     if starter == None or starter == "":
         raise Exception(f"invalid starter choice")
@@ -70,29 +71,29 @@ def main():
     pokemon = team[0]
     rival_pokemon = rival_team[0]
 
-    
+ #   print(f""" 
+ #       Player Name: {player.name}\n
+ #       Pokemon Picked: {pokemon.name}\n
+ #       Level: {pokemon.level}\n
+ #       HP: {pokemon.stats["hp"]}\n
+ #       Stats: {pokemon.stats}\n
+ #       Types: {pokemon.types}\n
+ #       Moves: {pokemon.moves}
+ #   """)
 
-    print(f""" 
-        Player Name: {player.name}\n
-        Pokemon Picked: {pokemon.name}\n
-        Level: {pokemon.level}\n
-        HP: {pokemon.stats["hp"]}\n
-        Stats: {pokemon.stats}\n
-        Types: {pokemon.types}\n
-        Moves: {pokemon.moves}
-    """)
+ #   print(f""" 
+ #       Rival Name: {rival.name}\n
+ #       Pokemon Picked: {rival_pokemon.name}\n
+ #       Level: {rival_pokemon.level}\n
+ #       HP: {rival_pokemon.stats["hp"]}\n
+ #       Stats: {rival_pokemon.stats}\n
+ #       Types: {rival_pokemon.types}\n
+ #       Moves: {rival_pokemon.moves}
+ #   """)
 
-    print(f""" 
-        Rival Name: {rival.name}\n
-        Pokemon Picked: {rival_pokemon.name}\n
-        Level: {rival_pokemon.level}\n
-        HP: {rival_pokemon.stats["hp"]}\n
-        Stats: {rival_pokemon.stats}\n
-        Types: {rival_pokemon.types}\n
-        Moves: {rival_pokemon.moves}
-    """)
-
-
+    print(f"Starting Battle")
+    battle_loop(player, rival)
+    print(f"Battle Ended")
 
 
 if __name__ == "__main__":

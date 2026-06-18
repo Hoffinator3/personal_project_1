@@ -12,6 +12,9 @@ class Pokemon:
 
     def take_damage(self, damage):
         self.stats["hp"] -= damage
+        if self.stats["hp"] <= 0:
+            self.stats["hp"] = 0
+            self.fainted = True
         return self.stats["hp"]
 
     def heal(self):
@@ -21,6 +24,10 @@ class Pokemon:
         pass
 
     def use_move(self, move, attacker, defender):
+        #move_name = self.moves[move].get_name()
+        #print(f"move_name = {move_name}")
+        #self.moves[move].get(move_name)["pp"] -= 1
+        print(f"self.moves = {self.moves[move].get_name()}")
         return self.moves[move].calculate_damage(attacker, defender)
 
     def is_stab(self):
@@ -28,8 +35,7 @@ class Pokemon:
 
     def list_moves(self):
         result = []
-        for move in self.moves:
-            i = 1
-            result.append(f"{i}. {move.get_name()}")
+        for i in range(len(self.moves)):
+            result.append(f"{i+1}. {self.moves[i].get_name()}")
             i += 1
         return result

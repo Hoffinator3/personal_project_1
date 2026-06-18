@@ -40,13 +40,13 @@ def test_move():
     fight = Battle(player, rival)
     action = fight.player_action(rival)
     print(f"action = {action}")
-    #player_attack = action - 1
-    fight.trainer_two.team[0].take_damage(action)
+    player_attack = action - 1
+    fight.trainer_two.team[0].take_damage(player_attack)
     print(f"rival pokemon took {action} damage")
     print(f"{fight.trainer_two.team[0].name} new hp: {fight.trainer_two.team[0].stats["hp"]}")
 
 
-    trainer_action = fight.tainer_action()
+    trainer_action = fight.trainer_action()
     print(f"trainer uses {trainer_action}")
 
 
