@@ -13,24 +13,7 @@ class Battle:
     def turn_order(self):
         if self.trainer_one.team[0].stats["speed"] == self.trainer_two.team[0].stats["speed"]:
             return 1 if random.randint(1, 100) % 2 != 0 else 2
-        #elif self.trainer_one.team[0].stats["speed"] > self.trainer_two.team[0].stats["speed"]:
-            #return 1
-        #else:
-            #return 2
         return 1 if self.trainer_one.team[0].stats["speed"] > self.trainer_two.team[0].stats["speed"] else 2
-
-    def process_move(self, move):
-        match(self.turn_order()):
-            case 1:
-                self.trainer_one.team[0].use_move(player_action_selection).calcuate_damage(self.trainer_one.team[0], self.trainer_two.team[0])
-                self.trainer_pokemon_fainted()
-                self.trainer_two.team[0].use_move().calcuate_damage(self.trainer_two.team[0], self.trainer_one.team[0])
-                self.player_pokemon_fainted()
-            case 2:
-                self.trainer_two.team[0].use_move().calcuate_damage(self.trainer_two.team[0], self.trainer_one.team[0])
-                self.player_pokemon_fainted()
-                self.trainer_one.team[0].use_move(selection).calcuate_damage(self.trainer_one.team[0], self.trainer_two.team[0])
-                self.trainer_pokemon_fainted()
 
     def player_pokemon_fainted(self):
         if self.trainer_one.team[0].stats["hp"] <= 0:
@@ -39,8 +22,8 @@ class Battle:
         return False
 
     def trainer_pokemon_fainted(self):
-        if self.trainer_one.team[0].stats["hp"] <= 0:
-            self.trainer_one.team[0].fainted = True
+        if self.trainer_two.team[0].stats["hp"] <= 0:
+            self.trainer_two.team[0].fainted = True
             return True
         return False
 
@@ -52,7 +35,7 @@ class Battle:
         action = input()
         if action == None or action == "":
             raise Exception(f"invalid action")
-        player_attack = self.trainer_one.team[0].use_move(int(action) - 1, self.trainer_one.team[0], trainer.team[0])
+        player_attack = self.trainer_one.team[0].moves[int(action) - 1].calculate_damage(self.trainer_one.team[0], trainer.team[0])
         trainer.team[0].take_damage(player_attack)
         
         print(f"{self.trainer_two.team[0].name} new hp: {self.trainer_two.team[0].stats["hp"]}")

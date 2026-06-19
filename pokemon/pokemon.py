@@ -23,12 +23,14 @@ class Pokemon:
     def level_up(self):
         pass
 
-    def use_move(self, move, attacker, defender):
-        #move_name = self.moves[move].get_name()
-        #print(f"move_name = {move_name}")
-        #self.moves[move].get(move_name)["pp"] -= 1
-        print(f"self.moves = {self.moves[move].get_name()}")
-        return self.moves[move].calculate_damage(attacker, defender)
+    def use_move(self, move_index, attacker, defender):
+        move = self.moves[move_index]
+        if move.pp > 0:
+            move.pp -= 1
+            print(f"New PP: {move.pp}")
+            return self.moves[move_index].calculate_damage(attacker, defender)
+        else:
+            raise Exception(f"Move has no PP")
 
     def is_stab(self):
         pass
