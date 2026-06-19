@@ -22,12 +22,7 @@ def test_battle():
     bulb_hp = pokemon["bulbasaur"]["stats"]["hp"]
     b.take_damage(s.moves[0].calculate_damage(s, b))
 
-    #print(f"- Bulbasaur\nOriginal HP: {bulb_hp}\nDamage take: {s.moves[0].calculate_damage(s, b)}\nRemaining HP: {b.stats["hp"]}")
-
-    # pokemon.usemove() test
-    #print(f"use_move() test: {s.use_move('tackle')}")
-
-def test_move():
+def test_battle():
     b = None
     s = None
     with open(os.path.abspath("./data/pokemon.json"), mode='r') as d:
@@ -49,6 +44,21 @@ def test_move():
     trainer_action = fight.trainer_action()
     print(f"trainer uses {trainer_action}")
 
+def test_move():
+    path_pokemon_data = "./data/pokemon.json"
+    char = make_mon(path_pokemon_data, "char")
+    bulb = make_mon(path_pokemon_data, "bulb")
+    
+    char.use_move(0, char, bulb)
+    bulb.use_move(0, bulb, char)
+
+def make_mon(path, mon):
+        with open(os.path.abspath(path), mode='r') as d:
+            pokemon = json.load(d)
+            if mon == "char":
+                return Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None)
+            else:
+                return Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None)
 
 if __name__ == "__main__":
     #test_battle()

@@ -27,7 +27,6 @@ class Pokemon:
         move = self.moves[move_index]
         if move.pp > 0:
             move.pp -= 1
-            #return self.moves[move_index].calculate_damage(attacker, defender)
         else:
             raise Exception(f"Move has no PP")
 

@@ -1,6 +1,8 @@
-#from pokemon.pokemon import Pokemon
+import random
 import os
 import json
+
+from decimal import Decimal, ROUND_HALF_DOWN
 
 # moves.json categories
 # 0 = status
@@ -30,9 +32,20 @@ class Moves:
         if self.category == 2:
             base_stats = base * self.power * (attacker.stats["sp_attack"] / defender.stats["sp_defense"])
 
-        #Missing calculations for random, stab,  type,  burn
+        #Missing calculations for stab,  type,  burn
         base_damage = (base_stats / 50) + 2
-        return int(base_damage)
+
+        rand_factor = (random.randint(84, 101) / 100)
+        base_damage *= rand_factor
+
+        base_damage = int(
+            Decimal(str(base_damage)).quantize(
+                Decimal("1"),
+                rounding=ROUND_HALF_DOWN
+            )
+        )
+
+        return base_damage
 
 
     def can_use(self):
