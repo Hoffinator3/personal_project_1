@@ -23,17 +23,17 @@ def battle_loop(player, rival):
             case 1:
                 battle.trainer_one.team[0].use_move(player_action_selection, battle.trainer_one.team[0], battle.trainer_two.team[0])
                 if battle.trainer_pokemon_fainted():
-                    break
+                    return "WIN!"
                 battle.trainer_two.team[0].use_move(trainer_action, battle.trainer_two.team[0], battle.trainer_one.team[0])
                 if battle.player_pokemon_fainted():
-                    break
+                    return "LOST!"
             case 2:
-                battle.trainer_action()
+                battle.trainer_two.team[0].use_move(trainer_action, battle.trainer_two.team[0], battle.trainer_one.team[0])
                 if battle.player_pokemon_fainted():
-                    break
-                battle.trainer_one.team[0].use_move(int(player_action_selection)-1, battle.trainer_one.team[0], battle.trainer_two.team[0])
+                    return "LOST!"
+                battle.trainer_one.team[0].use_move(player_action_selection, battle.trainer_one.team[0], battle.trainer_two.team[0])
                 if battle.trainer_pokemon_fainted():
-                    break
+                    return "WIN!"
 
         
         #battle.process_move(player_action_selection, trainer_action)
