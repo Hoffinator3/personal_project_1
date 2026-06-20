@@ -1,1 +1,1 @@
-# A short project which re-creates the inital battle of Gen 1 pokemon with OOP in Python
+# A short project which re-creates the inital battle of Gen 1 poke with OOP in Python
