@@ -124,5 +124,19 @@
             "type1": "water",
             "type2": null
         }
+    },
+        "pidgey": {
+        "stats": {
+            "hp": 40,
+            "attack": 45,
+            "defense": 50,
+            "sp_attack": 35,
+            "sp_defense": 35,
+            "speed": 56
+        },
+        "type": {
+            "type1": "normal",
+            "type2": "flying"
+        }
     }
 }

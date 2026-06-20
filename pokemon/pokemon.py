@@ -29,15 +29,18 @@ class Pokemon:
             move.pp -= 1
         else:
             raise Exception(f"Move has no PP")
+        
+        stab = self.is_stab(move_index)
 
-        player_attack = self.moves[move_index].calculate_damage(attacker, defender)
+        player_attack = self.moves[move_index].calculate_damage(attacker, defender, stab)
         defender.take_damage(player_attack)
 
         print(f"\033[38;2;136;33;74m[{attacker.name}]\033[0m used {attacker.moves[move_index].get_name()} for \033[38;2;136;33;74m{player_attack} damage\033[0m ({move.pp} PP Remaining).")
         print(f"    {defender.name} \033[38;2;136;33;74mnew hp: {defender.stats["hp"]}\033[0m")
 
-    def is_stab(self):
-        pass
+    def is_stab(self, move_index):
+        print(f"Is stab? {self.moves[move_index].type == self.types["type1"] or self.moves[move_index].type == self.types["type2"]}")
+        return (self.moves[move_index].type == self.types["type1"] or self.moves[move_index].type == self.types["type2"])
 
     def list_moves(self):
         result = []

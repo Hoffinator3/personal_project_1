@@ -46,19 +46,19 @@ def test_battle():
 
 def test_move():
     path_pokemon_data = "./data/pokemon.json"
-    char = make_mon(path_pokemon_data, "char")
-    bulb = make_mon(path_pokemon_data, "bulb")
+    squirt = make_mon(path_pokemon_data, "squirt")
+    pidg = make_mon(path_pokemon_data, "pidg")
     
-    char.use_move(0, char, bulb)
-    bulb.use_move(0, bulb, char)
+    squirt.use_move(0, squirt, pidg)
+    pidg.use_move(0, pidg, squirt)
 
 def make_mon(path, mon):
         with open(os.path.abspath(path), mode='r') as d:
             pokemon = json.load(d)
-            if mon == "char":
-                return Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None)
+            if mon == "squirt":
+                return Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None)
             else:
-                return Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None)
+                return Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None)
 
 if __name__ == "__main__":
     #test_battle()
