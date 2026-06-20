@@ -61,5 +61,4 @@ def make_mon(path, mon):
                 return Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None)
 
 if __name__ == "__main__":
-    #test_battle()
     test_move()

@@ -35,18 +35,10 @@ class Battle:
         action = input()
         if action == None or action == "":
             raise Exception(f"invalid action")
-        #player_attack = self.trainer_one.team[0].moves[int(action) - 1].calculate_damage(self.trainer_one.team[0], trainer.team[0])
-        #trainer.team[0].take_damage(player_attack)
-        
-        #print(f"{self.trainer_two.team[0].name} new hp: {self.trainer_two.team[0].stats["hp"]}")
         return int(action) - 1
 
     def trainer_action(self):
         return 0
-        #trainer_attack = self.trainer_two.team[0].moves[0].calculate_damage(self.trainer_two.team[0], self.trainer_one.team[0])
-        #self.trainer_one.team[0].take_damage(trainer_attack)
-        #print(f"{self.trainer_one.team[0].name} new hp: {self.trainer_one.team[0].stats["hp"]}")
-        #return self.trainer_two.team[0].moves[0].get_name()
     
     def battle_ended(self) -> bool:
         player_team_count = len(self.trainer_one.team)
