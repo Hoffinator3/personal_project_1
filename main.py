@@ -58,7 +58,6 @@ def main():
     """)
 
     starter = input()
-    #print(f"starter input = {starter}")
 
     if starter == None or starter == "":
         raise Exception(f"invalid starter choice")
@@ -68,30 +67,7 @@ def main():
 
     player = Player(player_name, team)
     rival = Trainer("Red", rival_team)
-    pokemon = team[0]
-    rival_pokemon = rival_team[0]
 
- #   print(f""" 
- #       Player Name: {player.name}\n
- #       Pokemon Picked: {pokemon.name}\n
- #       Level: {pokemon.level}\n
- #       HP: {pokemon.stats["hp"]}\n
- #       Stats: {pokemon.stats}\n
- #       Types: {pokemon.types}\n
- #       Moves: {pokemon.moves}
- #   """)
-
- #   print(f""" 
- #       Rival Name: {rival.name}\n
- #       Pokemon Picked: {rival_pokemon.name}\n
- #       Level: {rival_pokemon.level}\n
- #       HP: {rival_pokemon.stats["hp"]}\n
- #       Stats: {rival_pokemon.stats}\n
- #       Types: {rival_pokemon.types}\n
- #       Moves: {rival_pokemon.moves}
- #   """)
-
-    print(f"Starting Battle")
     winner = battle_loop(player, rival)
     print(f"\n\n *** Battle Ended **\n\nYOU {winner}")
 
