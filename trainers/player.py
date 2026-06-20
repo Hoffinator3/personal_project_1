@@ -13,3 +13,11 @@ class Player:
             for move in member.moves:
                 print(f"{i}. {move.name}")
                 i += 1
+    
+    def add_member(self, new_mon):
+        if len(self.team) == 6:
+            raise Exception("You can only have 6 pokemon at a time")
+        self.team.append(new_mon)
+
+    def switch_lead(self, new_lead_index):
+        self.team[0], self.team[new_lead_index] = self.team[new_lead_index], self.team[0]

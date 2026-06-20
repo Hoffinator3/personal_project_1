@@ -59,6 +59,22 @@ def make_mon(path, mon):
                 return Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None)
             else:
                 return Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None)
+            
+def switch_lead():
+    b = None
+    s = None
+    with open(os.path.abspath("./data/pokemon.json"), mode='r') as d:
+        pokemon = json.load(d)
+        b = Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None)
+        s = Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None) 
+
+    player = Player("zach", [b, s])
+
+    original_lead = player.team[0].name
+    print(f"original lead = {original_lead}")
+    player.switch_lead(1)
+    print(f"new lead = {player.team[0].name}")
 
 if __name__ == "__main__":
-    test_move()
+    #test_move()
+    switch_lead()
