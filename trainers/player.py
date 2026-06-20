@@ -7,12 +7,17 @@ class Player:
         self.team = team
 
     def list_moves(self):
+        member = self.team[0]
+        for move in member.moves:
+            print(f"{i}. {move.name}")
+            i += 1
+    
+    def list_team(self):
         for mon in self.team:
             i = 1
             member = self.team[mon]
-            for move in member.moves:
-                print(f"{i}. {move.name}")
-                i += 1
+            print(f"{i}. {member.name}")
+            i += 1
     
     def add_member(self, new_mon):
         if len(self.team) == 6:
