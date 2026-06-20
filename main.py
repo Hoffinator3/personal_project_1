@@ -92,8 +92,8 @@ def main():
  #   """)
 
     print(f"Starting Battle")
-    battle_loop(player, rival)
-    print(f"\n\n *** Battle Ended **\n\nYOU WIN!")
+    winner = battle_loop(player, rival)
+    print(f"\n\n *** Battle Ended **\n\nYOU {winner}")
 
 
 if __name__ == "__main__":
