@@ -9,6 +9,8 @@ from trainers.trainer import Trainer
 
 def battle_loop(player, rival):
     battle = Battle(player, rival)
+
+    print(f"Pokemon trainer {battle.trainer_two.name} challenges you to a battle!")
     
     while battle.battle_ended() == False:
         # get actions to be performed during the loop
