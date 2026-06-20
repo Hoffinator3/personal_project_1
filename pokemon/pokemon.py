@@ -39,7 +39,6 @@ class Pokemon:
         print(f"    {defender.name} \033[38;2;136;33;74mnew hp: {defender.stats["hp"]}\033[0m")
 
     def is_stab(self, move_index):
-        print(f"Is stab? {self.moves[move_index].type == self.types["type1"] or self.moves[move_index].type == self.types["type2"]}")
         return (self.moves[move_index].type == self.types["type1"] or self.moves[move_index].type == self.types["type2"])
 
     def list_moves(self):

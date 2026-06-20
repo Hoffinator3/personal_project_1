@@ -19,6 +19,12 @@ class Moves:
             self.pp = move[name]["pp"]
             self.category = move[name]["category"]
 
+    def is_crit(self):
+        is_crit = random.randint(1, 16) == 1
+        if is_crit:
+            print(f"\033[38;2;136;33;74mIt's a critical hit!\033[0m")
+        return is_crit
+    
     def calculate_damage(self, attacker, defender, stab) -> int:
         if attacker == None or attacker == "":
             attacker = 1
@@ -34,6 +40,9 @@ class Moves:
 
         #Missing calculations for type effectiveness, burn
         base_damage = (base_stats / 50) + 2
+
+        if self.is_crit():
+            base_damage *= 1.5
 
         rand_factor = (random.randint(84, 101) / 100)
         base_damage *= rand_factor
