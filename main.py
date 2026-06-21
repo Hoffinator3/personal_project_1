@@ -57,13 +57,25 @@ def main():
         1: Bulbasaur, 2: Charmander, or 3: Squirtle?
     """)
 
-    starter = input()
+    valid_starters = {
+        "1": "bulbasaur",
+        "2": "charmander",
+        "3": "squirtle",
+        "bulbasaur": "bulbasaur",
+        "charmander": "charmander",
+        "squirtle": "squirtle",
+    }
+    while True:
+        starter = input("> ").strip().lower()
 
-    if starter == None or starter == "":
-        raise Exception(f"invalid starter choice")
-    else:
-       team = create_starter(starter) 
-       rival_team = create_rival(starter)
+        if starter in valid_starters:
+            starter = valid_starters[starter]
+            break
+
+        print("Invalid choice. Please try again.")
+
+    team = create_starter(starter) 
+    rival_team = create_rival(starter)
 
     player = Player(player_name, team)
     rival = Trainer("Red", rival_team)

@@ -32,7 +32,7 @@ class Battle:
         move_list = self.trainer_one.team[0].list_moves()
         move_join = " ".join(move_list)
         print(f'{move_join}')
-        action = input()
+        action = input("> ")
         if action == None or action == "":
             raise Exception(f"invalid action")
         return int(action) - 1
