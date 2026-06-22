@@ -121,6 +121,8 @@ class Battle:
 
             if team_choice == 0:
                 return self.player_choice()
+            else:
+                self.trainer_one.switch_lead(team_choice)
 
             if self.trainer_one.team[0].name == current_mon:
                 return self.player_choice()

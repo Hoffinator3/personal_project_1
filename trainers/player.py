@@ -30,7 +30,6 @@ class Player:
 
     def team_wipe(self):
         for mon in self.team:
-            #member = self.team[mon]
             if mon.stats["hp"] > 0:
                 return False
         return True
