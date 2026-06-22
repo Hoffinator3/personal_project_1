@@ -26,3 +26,10 @@ class Player:
 
     def switch_lead(self, new_lead_index):
         self.team[0], self.team[new_lead_index] = self.team[new_lead_index], self.team[0]
+
+    def team_wipe(self):
+        for mon in self.team:
+            #member = self.team[mon]
+            if mon.stats["hp"] > 0:
+                return False
+        return True

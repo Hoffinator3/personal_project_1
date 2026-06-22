@@ -61,3 +61,69 @@ class Battle:
             return True
         
         return False
+
+
+    def switch_active_pokemon(self):
+        print(f"Please select a team member:")
+        team_list = self.trainer_one.list_team()
+        team_join = " ".join(team_list)
+        print(f'{team_join}')
+        action = input("> ")
+        if action == None or action == "":
+            raise Exception(f"invalid action")
+        action = int(action)
+
+        if action <= 0:
+            return
+        else:
+            self.trainer_one.switch_lead(action)
+
+        return int(action) - 1
+
+
+    def player_choice(self):
+        print(f"Please make a choice:")
+        print(f"1: Fight    2: Party")
+
+        valid_choices = (1, 2)
+        while True:
+            action = input("> ")
+            action = int(action)
+            if action in valid_choices:
+                #action = valid_choices[action]
+                break
+            print("Invalid choice. Please try again.")
+
+        print(f"action = {action}")
+        
+        #If fight, select a move and return
+        if action == 1:
+            return self.player_action()
+        #If party,
+        if action == 2:
+            # If no other team member, return choice function
+            if len(self.trainer_one.team) == 1:
+                print(f"No other pokemon are available.")
+                return self.player_choice()
+            
+            #store current mon
+            #used to handle "exiting" the party selection
+            current_mon = self.trainer_one.team[0].name
+            
+            print(f"Please select a team member:")
+            team_list = self.trainer_one.list_team()
+            team_join = " ".join(team_list)
+            print(f'{team_join}')
+            team_choice = input("> ")
+            if team_choice == None or team_choice == "":
+                raise Exception(f"invalid action")
+            team_choice = int(team_choice) -1
+
+            if team_choice == 0:
+                return self.player_choice()
+
+            if self.trainer_one.team[0].name == current_mon:
+                return self.player_choice()
+            else:
+                return -1
+            
