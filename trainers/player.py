@@ -13,11 +13,12 @@ class Player:
             i += 1
     
     def list_team(self):
+        mons = []
+        i = 1
         for mon in self.team:
-            i = 1
-            member = self.team[mon]
-            print(f"{i}. {member.name}")
+            mons.append(f"\n{i}. {mon.name}")
             i += 1
+        return mons
     
     def add_member(self, new_mon):
         if len(self.team) == 6:
