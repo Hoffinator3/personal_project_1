@@ -17,12 +17,15 @@ def create_starter(starter: str) -> list[Pokemon]:
         match starter.lower().strip():
             case "bulbasaur" | "1":
                 team.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None))
+                team.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return team
             case "charmander" | "2":
                 team.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None))
+                team.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return team
             case "squirtle" | "3":
                 team.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None))
+                team.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return team
             case _:
                 return list("Error Creating Starter")
@@ -34,12 +37,15 @@ def create_rival(starter: str) -> list[Pokemon]:
         match starter.lower().strip():
             case "squirtle" | "3":
                 rival.append(Pokemon("Bulbasaur", 5, pokemon["bulbasaur"]["stats"], pokemon["bulbasaur"]["type"], [Moves("tackle")], None))
+                #rival.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return rival
             case "bulbasaur" | "1":
                 rival.append(Pokemon("Charmander", 5, pokemon["charmander"]["stats"], pokemon["charmander"]["type"], [Moves("scratch")], None))
+                #rival.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return rival
             case "charmander" | "2":
                 rival.append(Pokemon("Squirtle", 5, pokemon["squirtle"]["stats"], pokemon["squirtle"]["type"], [Moves("tackle")], None))
+                #rival.append(Pokemon("Pidgey", 5, pokemon["pidgey"]["stats"], pokemon["pidgey"]["type"], [Moves("tackle")], None))
                 return rival
             case _:
                 return list("Error Creating Starter")
